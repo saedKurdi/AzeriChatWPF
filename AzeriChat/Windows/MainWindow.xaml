@@ -1,0 +1,74 @@
+﻿<Window x:Class="AzeriChat.windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AzeriChat.windows"
+        mc:Ignorable="d"
+        Title="ChatApp" Height="550" Width="450" Name="main_window">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <!--TOP-->
+
+        <Grid Grid.Row="0" Background="#66ffcc">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" HorizontalAlignment="Left" Source="../IconsImages/infintiychat.jpg" Width="200" Height="70"/>
+        </Grid>
+
+        <!--CENTER-->
+
+
+        <Grid Grid.Row="1" >
+
+            <ListView Background="#66ffcc" ItemsSource="{Binding AllMessages}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="3*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                            <Label FontSize="15" Grid.Column="0" Content="{Binding Username}"/>
+                            <Label FontSize="15" Grid.Column="1" Content="{Binding Text}"/>
+                            <Label FontSize="9" Grid.Column="2" Content="{Binding Time}"/>
+                            </Grid>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </Grid>
+
+
+
+        <!--BOTTOM-->
+
+        <Grid Grid.Row="2" Background="#66ffcc">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="15*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Background="#66ffcc" Margin="10 3 0 2" Grid.Column="0" CornerRadius="10" BorderThickness="2" BorderBrush="Black" >
+                <TextBox  Height="25" FontSize="17" Background="Transparent" BorderThickness="0">
+                </TextBox>
+            </Border>
+
+            <Button Grid.Column="1" Background="Transparent" Margin="0 10 5 3" BorderThickness="0">
+                <Image Width="25" Height="30" Source="../IconsImages/send.png"/>
+            </Button>
+        </Grid>
+
+    </Grid>
+</Window>
